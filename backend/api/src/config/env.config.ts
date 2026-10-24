@@ -138,7 +138,7 @@ export function getAppEnvironment(): AppEnvironment {
     process.env["CORS_ALLOWED_ORIGINS"] ||
     process.env["ALLOWED_ORIGINS"] ||
     process.env["FRONTEND_ORIGIN"] ||
-    "http://localhost:4200,http://127.0.0.1:4200,*";
+    "https://controller-monitor.vercel.app,http://localhost:4200,http://127.0.0.1:4200,*";
   const corsAllowedOrigins = Object.freeze(
     rawOrigins
       .split(",")

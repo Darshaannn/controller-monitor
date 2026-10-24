@@ -45,7 +45,21 @@ export function createApp(
   // Mount API routes
   app.use("/api", createDashboardRouter(dashboardController));
 
-  // Health check endpoints (root /health for standard cloud probes and /api/health for detailed status)
+  // Health & Service info endpoints
+  app.get("/", (_req: Request, res: Response) => {
+    res.json({
+      status: "ok",
+      service: "controller-monitor-api",
+      version: "1.0.0",
+      endpoints: {
+        health: "/health",
+        apiHealth: "/api/health",
+        dashboard: "/api/dashboard",
+        stream: "/api/telemetry/stream",
+      },
+    });
+  });
+
   app.get("/health", (_req: Request, res: Response) => {
     res.json({
       status: "ok",
