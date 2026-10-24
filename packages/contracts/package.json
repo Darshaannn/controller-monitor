@@ -1,0 +1,14 @@
+{
+  "name": "telemetry-contracts",
+  "version": "1.0.0",
+  "description": "Shared TypeScript data contracts for Telemetry Monitoring Dashboard",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.0"
+  }
+}

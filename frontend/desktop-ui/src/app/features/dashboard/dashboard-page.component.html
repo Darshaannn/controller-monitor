@@ -1,0 +1,56 @@
+<div class="dashboard-page container-fluid px-2 px-sm-3 px-md-4 py-3 py-md-4">
+  <!-- Page Header Title Area -->
+  <div class="page-title-section mb-3 mb-md-4 pb-2 border-bottom">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <div>
+        <h2 class="page-heading h4 fw-bold mb-1">Real-Time Telemetry</h2>
+        <p class="text-muted small mb-0 d-none d-sm-block">
+          Embedded controller live state monitoring &amp; physical parameters
+        </p>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <button
+          type="button"
+          class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center"
+          (click)="onRefresh()"
+          [disabled]="facade.loading() || facade.refreshing()"
+          aria-label="Refresh telemetry snapshot"
+          id="refreshSnapshotBtn"
+        >
+          <svg
+            class="me-1"
+            [class.spin-animation]="facade.refreshing()"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+          </svg>
+          <span class="d-none d-xs-inline">Refresh</span>
+          <span class="d-none d-sm-inline ms-1">Snapshot</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content States -->
+  @if (facade.loading()) {
+    <app-dashboard-skeleton />
+  } @else if (facade.errorMessage()) {
+    <app-dashboard-error [message]="facade.errorMessage()!" (retry)="onRetry()" />
+  } @else {
+    <!-- Telemetry Cards Grid -->
+    <div class="row g-3 g-md-4">
+      @for (panel of facade.panels(); track panel.key) {
+        <div class="col-12 col-md-6 col-xl-4">
+          <app-telemetry-card [model]="panel" (unitChange)="onUnitChange($event)" />
+        </div>
+      }
+    </div>
+  }
+</div>

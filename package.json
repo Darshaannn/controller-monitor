@@ -1,0 +1,72 @@
+{
+  "name": "telemetry-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "backend/*",
+    "frontend/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n \"API,UI,ELECTRON\" -c \"blue,green,magenta\" \"npm run dev:api\" \"npm run dev:ui\" \"npm run dev:electron\"",
+    "dev:backend": "npm run dev --workspace=telemetry-api",
+    "dev:frontend": "npm run start --workspace=desktop-ui",
+    "dev:api": "npm run dev --workspace=telemetry-api",
+    "dev:ui": "npm run start --workspace=desktop-ui",
+    "dev:electron": "wait-on http://localhost:4200 && npm run start --workspace=telemetry-electron",
+    "build": "npm run build --workspace=telemetry-contracts && npm run build --workspace=telemetry-api && npm run build --workspace=desktop-ui && npm run build --workspace=telemetry-electron",
+    "build:web": "npm run build --workspace=telemetry-contracts && npm run build --workspace=desktop-ui",
+    "build:api": "npm run build --workspace=telemetry-contracts && npm run build --workspace=telemetry-api",
+    "build:vercel": "npm run build:web && npm run build:api",
+    "start:backend": "npm run start --workspace=telemetry-api",
+    "typecheck": "npm run build --workspace=telemetry-contracts && tsc -b packages/contracts backend/api backend/electron",
+    "pretest": "npm run build --workspace=telemetry-contracts",
+    "test": "npm run test --workspace=telemetry-api && npm run test --workspace=desktop-ui",
+    "test:backend": "npm run test --workspace=telemetry-api",
+    "test:frontend": "npm run test --workspace=desktop-ui",
+    "package:win": "npm run build && electron-builder --win"
+  },
+  "build": {
+    "appId": "com.embedded.controllermonitor",
+    "productName": "Controller Monitor",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "backend/electron/dist/**/*",
+      "backend/api/dist/**/*",
+      "packages/contracts/dist/**/*",
+      "frontend/desktop-ui/dist/desktop-ui/**/*",
+      "node_modules/**/*"
+    ],
+    "extraMetadata": {
+      "main": "backend/electron/dist/main.js"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron-builder": "^26.15.3",
+    "wait-on": "^8.0.2"
+  },
+  "overrides": {
+    "exceljs": {
+      "uuid": "^11.1.1"
+    },
+    "tinypool": "^2.1.2",
+    "sprintf-js": "^1.1.3"
+  }
+}

@@ -1,0 +1,8 @@
+<span
+  class="status-badge d-inline-flex align-items-center px-2 py-1 rounded-pill fw-semibold text-uppercase"
+  [ngClass]="badgeClass()"
+  [attr.aria-label]="'Status: ' + label()"
+>
+  <span class="status-dot me-1 rounded-circle" aria-hidden="true"></span>
+  {{ label() }}
+</span>

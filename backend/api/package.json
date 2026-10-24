@@ -1,0 +1,30 @@
+{
+  "name": "telemetry-api",
+  "version": "1.0.0",
+  "description": "Express REST backend simulating embedded telemetry parameters",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:api": "tsc",
+    "start": "node dist/server.js",
+    "start:backend": "node dist/server.js",
+    "dev": "tsx watch src/server.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^24.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "telemetry-contracts": "*"
+  },
+  "devDependencies": {
+    "@types/supertest": "^6.0.2",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.3",
+    "typescript": "~5.8.0",
+    "vitest": "^5.0.5"
+  }
+}

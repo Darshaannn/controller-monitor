@@ -1,0 +1,32 @@
+.telemetry-chart-container {
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--panel-border, #334155);
+}
+
+.chart-canvas-wrapper {
+  height: 220px;
+  width: 100%;
+
+  @media (max-width: 576px) {
+    height: 180px;
+  }
+}
+
+.btn-xs {
+  padding: 0.15rem 0.4rem;
+  font-size: 0.68rem;
+  line-height: 1.2;
+}
+
+.x-small {
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 400px) {
+  .chart-controls {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+}

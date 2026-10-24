@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/desktop-ui/browser",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://dashboard-fullstack-zcs3.onrender.com/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

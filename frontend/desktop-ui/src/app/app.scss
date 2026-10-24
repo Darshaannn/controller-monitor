@@ -1,0 +1,10 @@
+.app-layout {
+  background-color: var(--app-bg, #0b1120);
+  color: var(--text-main, #f8fafc);
+}
+
+.app-footer {
+  background-color: var(--panel-bg, #1e293b);
+  border-color: var(--panel-border, #334155) !important;
+  font-size: 0.75rem;
+}

@@ -1,0 +1,18 @@
+<div class="app-layout d-flex flex-column min-vh-100">
+  <!-- Application Shell Header -->
+  <app-header
+    [connectionState]="facade.connectionState()"
+    [apiEndpoint]="facade.apiEndpoint()"
+    [lastUpdated]="facade.lastUpdated()"
+  />
+
+  <!-- Main Dashboard Viewport -->
+  <main class="app-main flex-grow-1" role="main">
+    <app-dashboard-page />
+  </main>
+
+  <!-- Application Shell Footer -->
+  <footer class="app-footer py-2 px-4 border-top text-center text-muted x-small">
+    <span>Controller Telemetry System &bull; Phase 3 Industrial Dashboard &bull; Created by Sandip Gadhave</span>
+  </footer>
+</div>

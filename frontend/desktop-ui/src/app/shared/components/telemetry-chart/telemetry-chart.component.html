@@ -1,0 +1,68 @@
+<div class="telemetry-chart-container w-100 position-relative">
+  <!-- Chart Controls Bar -->
+  <div class="chart-controls d-flex justify-content-between align-items-center mb-1 px-1">
+    <div class="chart-label text-muted x-small text-uppercase fw-semibold">
+      History ({{ history().length }} samples)
+    </div>
+    <!-- Zoom and Return to Live Controls -->
+    <div class="btn-group btn-group-sm" role="group" aria-label="Chart Zoom Controls">
+      <button
+        type="button"
+        class="btn btn-outline-secondary btn-xs"
+        (click)="zoomIn()"
+        title="Zoom In (X-Axis)"
+        aria-label="Zoom In"
+      >
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <line x1="11" y1="8" x2="11" y2="14"></line>
+          <line x1="8" y1="11" x2="14" y2="11"></line>
+        </svg>
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-secondary btn-xs"
+        (click)="zoomOut()"
+        title="Zoom Out (X-Axis)"
+        aria-label="Zoom Out"
+      >
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <line x1="8" y1="11" x2="14" y2="11"></line>
+        </svg>
+      </button>
+      @if (isZoomed()) {
+        <button
+          type="button"
+          class="btn btn-outline-info btn-xs fw-semibold"
+          (click)="resetZoom()"
+          title="Return to Live Monitoring View"
+          aria-label="Return to Live"
+        >
+          Return to Live
+        </button>
+      }
+    </div>
+  </div>
+
+  <!-- Chart Canvas -->
+  <div class="chart-canvas-wrapper position-relative">
+    <canvas #chartCanvas aria-label="Telemetry historical trend line chart" role="img"></canvas>
+  </div>
+</div>

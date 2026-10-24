@@ -1,0 +1,24 @@
+# Dependencies (applies recursively to root, backend/*, frontend/*, packages/*)
+node_modules/
+**/node_modules/
+
+# Build artifacts
+dist/
+**/dist/
+release/
+coverage/
+.angular/
+.system_generated/
+*.log
+.DS_Store
+Thumbs.db
+
+# Environment configs
+.env
+.env.*
+!.env.example
+
+# Vercel & Render temporary directories
+.vercel/
+.render/
+

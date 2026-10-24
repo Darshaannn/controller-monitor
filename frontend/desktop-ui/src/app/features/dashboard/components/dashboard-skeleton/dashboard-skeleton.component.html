@@ -1,0 +1,19 @@
+<div class="row g-4" aria-busy="true" aria-label="Loading telemetry data">
+  @for (item of [1, 2, 3]; track item) {
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="skeleton-card card h-100 p-3 border">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div class="skeleton-shimmer skeleton-title rounded"></div>
+          <div class="skeleton-shimmer skeleton-badge rounded-pill"></div>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center my-3">
+          <div class="skeleton-shimmer skeleton-gauge rounded-circle"></div>
+        </div>
+
+        <div class="skeleton-shimmer skeleton-meta rounded mt-3"></div>
+        <div class="skeleton-shimmer skeleton-footer rounded mt-3"></div>
+      </div>
+    </div>
+  }
+</div>
