@@ -22,3 +22,8 @@ Thumbs.db
 .vercel/
 .render/
 
+# Next.js build output
+.next/
+**/.next/
+
+
