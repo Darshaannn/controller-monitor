@@ -1,0 +1,7 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/health/route": "/api/health",
+  "/api/dashboard/route": "/api/dashboard",
+  "/api/telemetry/stream/route": "/api/telemetry/stream",
+  "/page": "/"
+}

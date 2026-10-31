@@ -1,0 +1,22 @@
+{
+  "..\\..\\..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
+    "id": 7655,
+    "files": [
+      "static/chunks/655.3fc65d6d0da75415.js"
+    ]
+  },
+  "..\\..\\..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
+    "id": 3826,
+    "files": [
+      "static/chunks/826.20e7545f83ce1c50.js"
+    ]
+  },
+  "components\\TelemetryCard.tsx -> ./TelemetryChart": {
+    "id": 5216,
+    "files": [
+      "static/chunks/c3110d36.720206eb2ef5f207.js",
+      "static/chunks/560.5cdf59bf860d4f63.js",
+      "static/chunks/216.3436e830fdae9494.js"
+    ]
+  }
+}

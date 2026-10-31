@@ -2,16 +2,5 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "buildCommand": "npm run build:vercel",
-  "outputDirectory": "frontend/desktop-ui/dist/desktop-ui/browser",
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "https://controller-monitor.onrender.com/api/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  "framework": "nextjs"
 }
-
